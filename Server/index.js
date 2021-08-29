@@ -13,8 +13,8 @@ app.get("/static/image", (req, res)=>{
         type: "jpg",
         url: []
     }
-    for(let i = 1; i <= query.count; i ++){
-        obj.url.push(`http://127.0.0.1:8086/static/image/pic${20 * query.page + i}.jpg`);
+    for(let i = 1; i <= query.count && 20 * (query.page - 1) + i <= 354; i ++){
+        obj.url.push(`http://127.0.0.1:8086/static/image/pic${20 * (query.page - 1) + i}.jpg`);
     }
     res.send(JSON.stringify(obj));
     console.log(JSON.stringify(obj));
